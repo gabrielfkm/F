@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestão de Projetos</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="overlay hidden" id="modalOverlay"></div>
+
+  <div class="container">
+    <header>
+      <h1>Gestão de Projetos</h1>
+      <div class="controls">
+        <input type="text" id="searchInput" placeholder="Buscar projeto..." />
+        <select id="filterStatus">
+          <option value="">Todos</option>
+          <option value="Em andamento">Em andamento</option>
+          <option value="Concluído">Concluído</option>
+          <option value="Atrasado">Atrasado</option>
+        </select>
+        <select id="sortBy">
+          <option value="">Ordenar por</option>
+          <option value="name">Nome</option>
+          <option value="status">Status</option>
+        </select>
+        <button id="fetchProjectsBtn">Buscar Projetos</button>
+        <button id="addProjectBtn">Adicionar Novo Projeto</button>
+      </div>
+    </header>
+
+    <main id="projects-section">
+      <div id="projectsList">
+        </div>
+    </main>
+
+    <div id="projectModal" class="modal hidden fade-in">
+      <h2 id="modalTitle">Adicionar Novo Projeto</h2>
+      <form id="projectForm">
+        <input type="hidden" id="editingProjectId" />
+        
+        <label for="projectName">Nome:</label>
+        <input type="text" id="projectName" required />
+
+        <label for="projectStatus">Status:</label>
+        <select id="projectStatus" required>
+          <option value="Em andamento">Em andamento</option>
+          <option value="Concluído">Concluído</option>
+          <option value="Atrasado">Atrasado</option>
+        </select>
+
+        <label for="projectDescription">Descrição:</label>
+        <textarea id="projectDescription" required></textarea>
+
+        <button type="submit" id="saveProjectBtn">Salvar</button>
+        <button type="button" id="cancelBtn">Cancelar</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Gestão de Projetos</p>
+    </footer>
+  </div>
+
+  <script type="module" src="../script/script.js"></script>
+</body>
+</html>

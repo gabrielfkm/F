@@ -1,0 +1,389 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1a1a1d; /* Fundo principal escuro e sofisticado */
+  color: #E0E0E0; /* Texto principal branco suave */
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  /* Gradiente com tons de verde-azulado para um visual moderno */
+  background: linear-gradient(90deg, #1f3a3d 0%, #00796B 100%); 
+  padding: 30px 20px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra mais pronunciada */
+}
+
+h1 {
+  font-size: 2.8em; /* Levemente maior */
+  margin-bottom: 10px;
+  color: #E0E0E0; /* Mantido branco para contraste com o gradiente */
+}
+
+.controls {
+  display: flex;
+  gap: 15px; /* Aumentar o espaçamento entre os controles */
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 25px; /* Mais espaço acima */
+}
+
+.controls input,
+.controls select,
+.controls button {
+  padding: 12px 18px; /* Mais padding */
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #252529; /* Fundo dos inputs mais claro que o body */
+  color: #E0E0E0;
+  font-size: 1.05em; /* Levemente maior */
+  transition: all 0.3s ease;
+}
+
+.controls input::placeholder {
+  color: #b0b0b0; /* Cor do placeholder */
+}
+
+.controls input:focus,
+.controls select:focus {
+  outline: none;
+  border-color: #00BCD4; /* Cor primária para o foco */
+  box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.4); /* Sombra de foco com a cor primária */
+}
+
+.controls button {
+  cursor: pointer;
+  background-color: #00BCD4; /* Cor primária para botões de ação */
+  color: #1a1a1d; /* Texto escuro nos botões claros */
+  font-weight: bold;
+  letter-spacing: 0.5px; /* Leve espaçamento entre letras */
+  text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+.controls button:hover {
+  background-color: #00ACC1; /* Tom um pouco mais escuro no hover */
+  transform: translateY(-2px); /* Pequeno efeito de elevação */
+  box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+}
+
+/* Lista de Projetos */
+#projectsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px; /* Aumentar espaçamento entre cards */
+  padding: 25px 0;
+}
+
+.project-card {
+  background-color: #252529; /* Fundo do card mais claro que o body */
+  border-radius: 12px; /* Borda mais arredondada */
+  padding: 25px; /* Mais padding */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra mais suave */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 6px solid #455a64; /* Borda padrão um cinza mais escuro */
+}
+
+.project-card:hover {
+  transform: translateY(-7px); /* Efeito de elevação mais pronunciado */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project-card h3 {
+  color: #00BCD4; /* Título do card com a cor primária */
+  margin-bottom: 12px;
+  font-size: 1.6em; /* Levemente maior */
+}
+
+.project-card p {
+  color: #c0c0c0; /* Texto mais claro */
+  margin-bottom: 10px;
+  font-size: 1em; /* Tamanho padrão */
+}
+
+.project-actions {
+    margin-top: 15px; /* Espaço entre descrição e botões */
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Para quebrar linha em telas pequenas */
+}
+
+.project-card button {
+  padding: 10px 18px; /* Mais padding nos botões */
+  border-radius: 8px; /* Mais arredondado */
+  border: none;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card button:first-of-type { /* Editar */
+  background-color: #2196F3; /* Azul vibrante para editar */
+  color: white;
+}
+
+.project-card button:first-of-type:hover {
+  background-color: #1976D2;
+  transform: translateY(-1px);
+}
+
+.project-card button:last-of-type { /* Excluir */
+  background-color: #FF5252; /* Vermelho vibrante para excluir */
+  color: white;
+}
+
+.project-card button:last-of-type:hover {
+  background-color: #D32F2F;
+  transform: translateY(-1px);
+}
+
+/* Estilos de Status - Mantidos vibrantes para rápida identificação */
+.project-card.concluido {
+  border-left: 6px solid #4CAF50; /* Verde mais tradicional para concluído */
+}
+
+.project-card.em-andamento {
+  border-left: 6px solid #FFC107; /* Amarelo/Laranja para em andamento */
+}
+
+.project-card.atrasado {
+  border-left: 6px solid #F44336; /* Vermelho para atrasado */
+}
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #252529; /* Fundo do modal igual aos cards */
+  padding: 35px; /* Mais padding */
+  border-radius: 15px; /* Mais arredondado */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+  width: 90%;
+  max-width: 550px; /* Levemente mais largo */
+  color: #E0E0E0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.fade-in {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal h2 {
+  margin-bottom: 25px;
+  color: #00BCD4; /* Título do modal com a cor primária */
+  font-size: 2em; /* Título maior */
+  text-align: center;
+}
+
+#projectModal label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #A0A0A0;
+}
+
+#projectModal input,
+#projectModal select,
+#projectModal textarea {
+  width: 100%;
+  padding: 14px; /* Mais padding */
+  margin-bottom: 25px; /* Mais espaço abaixo */
+  border-radius: 8px;
+  border: 1px solid #555;
+  background-color: #333; /* Fundo dos inputs do modal ligeiramente diferente */
+  color: #E0E0E0;
+  font-size: 1.1em; /* Fonte maior */
+}
+
+#projectModal textarea {
+  resize: vertical;
+  min-height: 120px; /* Altura mínima maior */
+}
+
+#projectModal button {
+  padding: 14px 25px; /* Mais padding */
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.15em; /* Fonte maior */
+  font-weight: bold;
+  margin-right: 20px; /* Mais espaçamento */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#projectModal button[type="submit"] {
+  background-color: #00BCD4; /* Cor primária para Salvar */
+  color: #1a1a1d;
+}
+
+#projectModal button[type="submit"]:hover {
+  background-color: #00ACC1;
+  transform: translateY(-1px);
+}
+
+#projectModal button[type="button"] { /* Cancelar */
+  background-color: #555;
+  color: white;
+}
+
+#projectModal button[type="button"]:hover {
+  background-color: #777;
+  transform: translateY(-1px);
+}
+
+/* Overlay for modal background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); /* Fundo mais escuro */
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.fade-in {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Utility class to hide elements */
+.hidden {
+  display: none !important; /* Garante que sobrescreva outras regras de display */
+}
+
+
+/* Footer */
+footer {
+  background-color: #1a1a1d; /* Mesma cor do body para um visual integrado */
+  color: #A0A0A0; /* Texto mais suave */
+  text-align: center;
+  padding: 25px; /* Mais padding */
+  margin-top: 50px; /* Mais espaço acima */
+  border-radius: 10px 10px 0 0;
+  font-size: 0.95em; /* Levemente maior */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+}
+
+/* Adicionado para mensagem de "Nenhum projeto" */
+.no-projects {
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 1.2em;
+    padding: 40px;
+    background-color: #252529;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2em;
+  }
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .controls input,
+  .controls select,
+  .controls button {
+    width: 100%;
+  }
+
+  #projectsList {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+
+  .project-card {
+    padding: 20px;
+  }
+
+  .project-card h3 {
+    font-size: 1.4em;
+  }
+
+  .project-card p {
+    font-size: 0.9em;
+  }
+
+  .project-card button {
+    font-size: 0.85em;
+    padding: 8px 12px;
+  }
+
+  .modal {
+    width: 95%;
+    padding: 25px;
+  }
+
+  #projectModal button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .controls input,
+  .controls select,
+  .controls button {
+    padding: 10px 12px;
+  }
+
+  .project-card {
+    padding: 15px;
+  }
+
+  .project-card h3 {
+    font-size: 1.3em;
+  }
+
+  #projectModal input,
+  #projectModal select,
+  #projectModal textarea {
+    padding: 10px;
+  }
+
+  #projectModal button {
+    padding: 10px 15px;
+  }
+}
